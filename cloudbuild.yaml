@@ -1,0 +1,11 @@
+steps:
+  # Cài đặt quyền thực thi cho mvnw
+  - name: 'gcr.io/cloud-builders/gcloud'
+    entrypoint: 'bash'
+    args: ['-c', 'chmod +x mvnw']
+    
+  # Chạy Maven để build dự án
+  - name: 'gcr.io/cloud-builders/maven'
+    args: ['clean', 'package', '-DskipTests', '-f', 'pom.xml']
+
+# Thêm các cấu hình khác nếu cần
